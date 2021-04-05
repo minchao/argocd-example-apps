@@ -5,3 +5,5 @@ resources:
   - ./frontend
   - ./mysql
   - ingress.yaml
+configurations:
+  - https://raw.githubusercontent.com/argoproj/argo-rollouts/v0.10.2/docs/features/kustomize/rollout-transform.yaml
