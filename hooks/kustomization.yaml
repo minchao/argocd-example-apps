@@ -1,0 +1,36 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namePrefix: test-
+commonLabels:
+  variant: test
+
+resources:
+  - deployment.yaml
+  - hooks.yaml
+
+patchesJson6902:
+  - target:
+      kind: Job
+      name: hook-presync-
+      version: v1
+    path: patches-hook-name.yaml
+  - target:
+      kind: Job
+      name: hook-sync-
+      version: v1
+    path: patches-hook-name.yaml
+  - target:
+      kind: Job
+      name: hook-skip-
+      version: v1
+    path: patches-hook-name.yaml
+  - target:
+      kind: Job
+      name: hook-postsync-
+      version: v1
+    path: patches-hook-name.yaml
+  - target:
+      kind: Job
+      name: hook-syncfail-
+      version: v1
+    path: patches-hook-name.yaml

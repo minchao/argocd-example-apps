@@ -1,0 +1,89 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook-presync-
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+        - name: hook-presync-echo-hello
+          image: debian:buster
+          command: [ "sh", "-c" ]
+          args:
+            - sleep 5; echo hello presync
+      restartPolicy: Never
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook-sync-
+  annotations:
+    argocd.argoproj.io/hook: Sync
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+        - name: hook-sync-echo-hello
+          image: debian:buster
+          command: [ "sh", "-c" ]
+          args:
+            - sleep 5; echo hello sync
+      restartPolicy: Never
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook-skip-
+  annotations:
+    argocd.argoproj.io/hook: Skip
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+        - name: hook-skip-echo-hello
+          image: debian:buster
+          command: [ "sh", "-c" ]
+          args:
+            - sleep 5; echo hello skip
+      restartPolicy: Never
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook-postsync-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+        - name: hook-postsync-echo-hello
+          image: debian:buster
+          command: [ "sh", "-c" ]
+          args:
+            - sleep 5; echo hello postsync
+      restartPolicy: Never
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hook-syncfail-
+  annotations:
+    argocd.argoproj.io/hook: SyncFail
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+        - name: hook-syncfail-echo-hello
+          image: debian:buster
+          command: [ "sh", "-c" ]
+          args:
+            - sleep 5; echo hello syncfail
+      restartPolicy: Never
