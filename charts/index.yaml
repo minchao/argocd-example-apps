@@ -1,9 +1,20 @@
 apiVersion: v1
 entries:
+  cronjob:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-05-25T22:19:22.34373+08:00"
+    description: A Helm chart for Kubernetes
+    digest: 58fe1c765a0147a0b7bd8ef38b62263645f4d8610150e8a25f4d55a39482cdcb
+    name: cronjob
+    type: application
+    urls:
+    - https://minchao.github.io/argocd-example-apps/charts/cronjob-0.1.0.tgz
+    version: 0.1.0
   helm-guestbook:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-05-07T14:55:34.009011+08:00"
+    created: "2021-05-25T22:19:22.344707+08:00"
     description: A Helm chart for Kubernetes
     digest: 84ec8a9f5985c50b9862aa3ab546d0e9d638154df3116425d9e5894de2bd25e8
     name: helm-guestbook
@@ -11,4 +22,4 @@ entries:
     urls:
     - https://minchao.github.io/argocd-example-apps/charts/helm-guestbook-0.1.0.tgz
     version: 0.1.0
-generated: "2021-05-07T14:55:34.008398+08:00"
+generated: "2021-05-25T22:19:22.343282+08:00"
